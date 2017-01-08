@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Reem kufi:200,500,700,800);
 .input {
 	position: relative;
 	z-index: 1;
@@ -17,8 +18,8 @@
 	border-radius: 0;
 	background: #f0f0f0;
 	color: #aaa;
-	font-weight: 400;
-	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 1000;
+	font-family: 'Reem Kufi', sans-serif;
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
 
@@ -60,7 +61,7 @@
 
 .icon {
 	color: #ddd;
-	font-size: 100%;
+	font-size: 30%;
 }
 
 /* Individual styles */
