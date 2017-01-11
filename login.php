@@ -43,11 +43,11 @@
 			//Login Successful
 			session_regenerate_id();
 			$member = mysqli_fetch_assoc($result);
-			$_SESSION['SESS_MEMBER_ID'] = $member['RegNo'];
+			$_SESSION['SESS_MEMBER_ID'] = $member['R_no'];
 			$_SESSION['SESS_FIRST_NAME'] = $member['Name'];
-			$_SESSION['SESS_LAST_NAME'] = $member['Password'];
+			$_SESSION['SESS_LAST_NAME'] = $member['token'];
 			session_write_close();
-			header("location: main.html");
+			header("location: main.php");
 			exit();
 		}else {
 			//Login failed
