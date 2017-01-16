@@ -1,6 +1,20 @@
 <?php
 	include('connection.php');
 	require_once('auth.php');
+	$rno = $_SESSION['SESS_MEMBER_ID'];
+	$sql = "UPDATE r_users SET t_flag = '1' WHERE R_no='$rno' ";
+	if (!mysqli_query($con,$sql))
+
+  {
+
+  die('Error: ' . mysqli_error($con));
+
+  }
+
+
+ 
+
+mysqli_close($con)
 ?>
 <html lang="en">
 <head>
@@ -28,7 +42,7 @@
   function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
   setInterval(function () {
-      minutes = parseInt(timer / 60, 10)
+      minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
 
       minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -86,7 +100,7 @@ window.onload = function () {
         </div>
       </div>
         <br><br><br>
-          <form>
+          <form name="tech1" action="tsub.php" method="POST"  onsubmit="myFunction()">
             <div style="margin-left: 10px" class="form-group">
                 <p id="q1" style="font-size: 20px">> This is question 1 what do you think the answer would be lulz k? </p>
               &nbsp;  <input class="with-gap" name="group1" type="radio" id="test1">
@@ -160,42 +174,42 @@ window.onload = function () {
             <div style="margin-left: 10px" class="form-group">
                 <p id="q6" style="font-size: 20px">> This is question 6 what do you think the answer would be lulz k? </p>
                 <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <textarea id="textarea1" name="q6" class="materialize-textarea"></textarea>
             <label for="textarea1" style="color: black">Answer</label>
           </div>
             </div>
             <div style="margin-left: 10px" class="form-group">
                 <p id="q7" style="font-size: 20px">> This is question 7 what do you think the answer would be lulz k? </p>
                 <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea"></textarea>
+            <textarea id="textarea2" name="q7" class="materialize-textarea"></textarea>
             <label for="textarea2" style="color: black">Answer</label>
           </div>
             </div>
             <div style="margin-left: 10px" class="form-group">
                 <p id="q8" style="font-size: 20px">> This is question 8 what do you think the answer would be lulz k? </p>
                 <div class="input-field col s12">
-            <textarea id="textarea3" class="materialize-textarea"></textarea>
+            <textarea id="textarea3" name="q8" class="materialize-textarea"></textarea>
             <label for="textarea3" style="color: black">Answer</label>
           </div>
             </div>
             <div style="margin-left: 10px" class="form-group">
                 <p id="q9" style="font-size: 20px">> This is question 9 what do you think the answer would be lulz k? </p>
                 <div class="input-field col s12">
-            <textarea id="textarea4" class="materialize-textarea"></textarea>
+            <textarea id="textarea4" name="q9" class="materialize-textarea"></textarea>
             <label for="textarea4" style="color: black">Answer</label>
           </div>
             </div>
             <div style="margin-left: 10px" class="form-group">
                 <p id="q10" style="font-size: 20px">> This is question 10 what do you think the answer would be lulz k? </p>
                 <div class="input-field col s12">
-            <textarea id="textarea5" class="materialize-textarea"></textarea>
+            <textarea id="textarea5" name="q10" class="materialize-textarea"></textarea>
             <label for="textarea5" style="color: black">Answer</label>
           </div>
             </div>
 
             <center>
             <div class="col s12" style="margin-bottom: 20px; margin-top: 10px">
-              <a class="waves-effect waves-light btn" style="color: #fbc02d; background-color: #212121; border-radius: 10px" onclick="myFunction()">Submit</a>
+              <button style="color: black; background-color: #FD9300" class="btn waves-effect waves-light" type="submit" name="action"> Submit </button>
             </div>
             <br>
           </center>

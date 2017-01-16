@@ -1,6 +1,20 @@
 <?php
 	include('connection.php');
 	require_once('auth.php');
+	$rno = $_SESSION['SESS_MEMBER_ID'];
+	$sql = "UPDATE r_users SET t_flag = '1' WHERE R_no='$rno' ";
+	if (!mysqli_query($con,$sql))
+
+  {
+
+  die('Error: ' . mysqli_error($con));
+
+  }
+
+
+ 
+
+mysqli_close($con)
 ?>
 <html lang="en">
 <head>
