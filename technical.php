@@ -1,21 +1,38 @@
+<?php 
+	include('connection.php');
+	require_once('auth.php');
+	$rno = $_SESSION['SESS_MEMBER_ID'];
+	$qry="SELECT * FROM r_users WHERE R_no='$rno' ";
+	$result= mysqli_query($con,$qry); 
+	$row = mysqli_fetch_assoc( $result );
+	$tf = $row['t_flag'];
+	if ($tf == 0){}
+	else{
+		$errmsg_arr[] = 'You have already attempted this quiz !';
+		$errflag = true;
+		if($errflag) {
+				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+				session_write_close();
+				header("location: main.php");
+				exit();
+			}
+	}
+?>
 <?php
 	include('connection.php');
 	require_once('auth.php');
 	$rno = $_SESSION['SESS_MEMBER_ID'];
 	$sql = "UPDATE r_users SET t_flag = '1' WHERE R_no='$rno' ";
 	if (!mysqli_query($con,$sql))
+	{
 
-  {
+		die('Error: ' . mysqli_error($con));
 
-  die('Error: ' . mysqli_error($con));
-
-  }
-
-
- 
-
-mysqli_close($con)
+	}
+	mysqli_close($con)
 ?>
+
+
 <html lang="en">
 <head>
   <title>Technical - TAG CCS</title>
