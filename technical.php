@@ -68,8 +68,11 @@
       display.textContent = minutes + ":" + seconds;
 
       if (--timer < 0) {
-          timer = duration;
-      }
+          clearInterval(timer);
+		  document.getElementById('tech1').submit();
+		  alert("Your time is up !!");
+	  }
+	  
   }, 1000);
 }
 
@@ -117,7 +120,7 @@ window.onload = function () {
         </div>
       </div>
         <br><br><br>
-          <form name="tech1" action="tsub.php" method="POST"  onsubmit="myFunction()">
+          <form name="tech1" id="tech1" action="tsub.php" method="POST"  onsubmit="myFunction()">
             <div style="margin-left: 10px" class="form-group">
                 <p id="q1" style="font-size: 20px">> This is question 1 what do you think the answer would be lulz k? </p>
               &nbsp;  <input class="with-gap" name="group1" type="radio" id="test1">

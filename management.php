@@ -71,7 +71,9 @@ mysqli_close($con)
       display.textContent = minutes + ":" + seconds;
 
       if (--timer < 0) {
-          timer = duration;
+          clearInterval(timer);
+		  document.getElementById('tech1').submit();
+		  alert("Your time is up !!");
       }
   }, 1000);
 }
@@ -119,7 +121,7 @@ window.onload = function () {
         <br><br><br>
 
 <div class="row">
-  <form>
+  <form name="mang1" id="tech1" action="msub.php" method="POST"  onsubmit="myFunction()">
     <div style="margin-left: 10px" class="form-group">
         <p id="q6" style="font-size: 20px">> This is question 1 what do you think the answer would be lulz k? </p>
         <div class="input-field col s12">
@@ -193,7 +195,7 @@ window.onload = function () {
 
     <center>
     <div class="col s12" style="margin-bottom: 20px; margin-top: 10px">
-      <a class="waves-effect waves-light btn" style="color: #fbc02d; background-color: #212121; border-radius: 10px" onclick="myFunction()">Submit</a>
+      <button class="waves-effect waves-light btn" style="color: #fbc02d; background-color: #212121; border-radius: 10px" type="submit">Submit</a>
     </div>
     <br>
   </center>
